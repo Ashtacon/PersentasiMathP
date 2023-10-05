@@ -36,43 +36,59 @@ function handleScroll() {
 // Attach the scroll event listener to the window
 window.addEventListener('scroll', handleScroll);
 
-const dynamicTextElement = document.getElementById("jap");
 
-const textValues = [
+function setupTypingEffect(elementId, textValues) {
+    const dynamicTextElement = document.getElementById(elementId);
+    let currentIndex = 0;
+    let currentText = "";
+
+    function typeText() {
+        const targetText = textValues[currentIndex];
+        currentText = targetText.substring(0, currentText.length + 1);
+        dynamicTextElement.textContent = currentText;
+
+        if (currentText === targetText) {
+            setTimeout(eraseText, 5000);
+        } else {
+            setTimeout(typeText, 100);
+        }
+    }
+
+    function eraseText() {
+        currentText = currentText.substring(0, currentText.length - 1);
+        dynamicTextElement.textContent = currentText;
+
+        if (currentText === "") {
+            currentIndex = (currentIndex + 1) % textValues.length;
+            setTimeout(typeText, 500);
+        } else {
+            setTimeout(eraseText, 50);
+        }
+    }
+
+    return {
+        start: function () {
+            typeText();
+        },
+    };
+}
+
+const textValuesJap = [
     "ようこそ",
     "Welcome to",
     "Selamat Datang di",
     // Add more text values as needed
 ];
 
-let currentIndex = 0;
-let currentText = "";
+const textValuesEng = [
+    "最高のクラス",
+    "The Best Class",
+    "Kelas Terbaik",
+    // Add more text values as needed
+];
 
-function typeText() {
-    const targetText = textValues[currentIndex];
-    if (currentText !== targetText) {
-        currentText = targetText.substring(0, currentText.length + 1);
-        dynamicTextElement.textContent = currentText;
-        setTimeout(typeText, 100); // Adjust typing speed (in milliseconds)
-    } else {
-        setTimeout(eraseText, 1000); // Wait for 1 second before erasing
-    }
-}
+const typingEffectJap = setupTypingEffect("jap", textValuesJap);
+const typingEffectEng = setupTypingEffect("eng", textValuesEng);
 
-function eraseText() {
-    if (currentText.length > 0) {
-        currentText = currentText.substring(0, currentText.length - 1);
-        dynamicTextElement.textContent = currentText;
-        setTimeout(eraseText, 50); // Adjust erasing speed (in milliseconds)
-    } else {
-        currentIndex = (currentIndex + 1) % textValues.length;
-        setTimeout(typeText, 500); // Wait for 0.5 seconds before typing again
-    }
-}
-
-function initialize() {
-    typeText(); // Start typing effect
-}
-
-// Call the initialize function to start the text cycling with a typing effect
-initialize();
+typingEffectJap.start();
+typingEffectEng.start();
