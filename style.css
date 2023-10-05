@@ -1,157 +1,88 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Noto+Sans+JP:wght@900&display=swap');
 
-
-::-webkit-scrollbar {
-    width: 8px; 
-}
-::-webkit-scrollbar-track {
-    background-image: url('img/math.jpg');
-    background-size: cover;
-}
-::-webkit-scrollbar-thumb {
-    background-color: #eaeaea;
-    border-radius: 15px;
+/* Add CSS for the typing effect */
+.typing::after {
+    content: '|';
+    animation: typing 0.7s infinite alternate;
 }
 
-body{
-    background-color: #004643 !important;
-    font-family: 'Montserrat';
-    overflow-x: hidden;
-}
-#hero{
-    height: 100vh;
-    background-color: #004643;
-    background-image: url(img/background.png);
-    background-size: contain;
-}
-
-.title{
-    font-size: 4rem !important;
-    color: #fffffe;
-    text-shadow: 5px 5px 10px rgb(0, 0, 0, .25);
-    font-family: 'Montserrat', sans-serif;
-}
-
-.subtitle{
-    font-size: 3rem !important;
-    color: #fffffe;
-    text-shadow: 5px 5px 10px rgb(0, 0, 0, .25);
-    font-family: 'Montserrat', sans-serif;
-}
-
-.highlight{
-    color: #F9BC60 !important;
-}
-
-.hero-image{
-    position: absolute;
-    z-index: 9999;
-    left: 0;
-    bottom: 0;
-    width: 250px;
-}
-
-#what{
-    background-color: #004643;
-    background-image: url('img/what.png');
-    height: 700px;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.polygon{
-    position: absolute;
-    width: 70px;
-}
-.paragraph{
-    margin-left: 100px;
-    font-size: 1.5rem;
-    color: #ABD1C6;
-    font-family: 'Montserrat';
-}
-
-
-#formula{
-    background-color: #004643;
-    background-image: url("img/background.png");
-    height: 700px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-}
-.for-senku{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 450px !important;
-}
-
-#applications{
-    background-color: #004643;
-    background-image: url("img/background.png");
-    height: 700px;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-#example{
-    background-color: #004643;
-    background-image: url("img/background.png");
-    height: 700px;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.question{
-    font-size: 1.5rem;
-    color: #ABD1C6;
-    font-family: 'Montserrat';
-    text-shadow: 5px 5px 10px rgb(0,0,0,.6);
-}
-
-#exercise{
-    background-color: #004643;
-    background-image: url("img/background.png");
-    height: 700px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-}
-
-.senku-see{
-    position: absolute;
-    z-index: 9999;
-    right: 0;
-    bottom: 0;
-}
-
-#thanks{
-    background-color: #004643;
-    background-image: url("img/background.png");
-    height: 700px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-}
-
-.close-image{
-    position: absolute;
-    bottom: 0;
-}
-
-#scrolling-image {
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.close-image {
-    animation: scroll 10s linear infinite;
-}
-
-@keyframes scroll {
+@keyframes typing {
     0% {
-        transform: translateX(100%);
+        content: '|';
     }
     100% {
-        transform: translateX(-100%);
+        content: '';
     }
+}
+
+
+.bg-costum{
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+.bg-costum.scrolled{
+    transition: 2s;
+    background-color: rgba(15, 14, 23, 0.7) !important;
+    border-radius: 5px;
+}
+.navbar-brand{
+    color: #e53170 !important;
+    font-family: 'Montserrat';
+    font-weight: 900;
+}
+.teritary{
+    color: #e53170 !important;
+}
+.nav-link {
+    color: #fffffe !important;
+    font-family: 'Montserrat';
+    font-weight: 400;
+}
+
+.nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff8906;
+    transition: width .3s;
+}
+
+.nav-link:hover{
+    color: #ff8906 !important;
+    transition: .6s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    transition: width .3s;
+}
+.active{
+    color: #ff8906 !important;
+}
+
+#hero{
+    height: 100vh;
+    background-color: #0f0e17;
+    color: #fffffe;
+    font-family: 'Montserrat', 'Noto Sans JP';
+}
+#hero h1{
+    font-weight: 900;
+    text-shadow: 5px 5px 10px rgba(0,0,0,0.25);
+}
+
+.touch:hover{
+    color: #ff8906;
+    transition: .3s;
+}
+#about h1{
+    font-weight: 900;
+    color: #0f0e17;
+}
+#about{
+    height: 500px;
+    color: #2e2f3e;
+    text-shadow: 3px 3px 4px rgba(0,0,0,0.25);
+    font-family: 'Montserrat';
+    font-weight: 400;
 }
