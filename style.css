@@ -1,23 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Noto+Sans+JP:wght@900&display=swap');
 
-/* Add CSS for the typing effect */
-.typing::after {
-    content: '|';
-    animation: typing 0.7s infinite alternate;
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 8px; /* Set the width of the scrollbar */
 }
-
-@keyframes typing {
-    0% {
-        content: '|';
-    }
-    100% {
-        content: '';
-    }
+  
+::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Set the color of the scrollbar thumb */
+    border-radius: 4px; /* Round the corners of the thumb */
 }
-
-
+  
+::-webkit-scrollbar-thumb:hover {
+    background-color: #999; /* Change the thumb color on hover */
+}
 .bg-costum{
-    background-color: rgba(0, 0, 0, 0) !important;
+    background-color: rgba(15, 14, 23, 0.2) !important;
 }
 .bg-costum.scrolled{
     transition: 2s;
