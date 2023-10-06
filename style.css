@@ -72,7 +72,7 @@
     height: 50px;
 }
 
-.touch:hover{
+#text:hover{
     color: #ff8906;
     transition: .3s;
 }

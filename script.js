@@ -37,58 +37,22 @@ function handleScroll() {
 window.addEventListener('scroll', handleScroll);
 
 
-function setupTypingEffect(elementId, textValues) {
-    const dynamicTextElement = document.getElementById(elementId);
-    let currentIndex = 0;
-    let currentText = "";
+const jap = document.getElementById('jap');
 
-    function typeText() {
-        const targetText = textValues[currentIndex];
-        currentText = targetText.substring(0, currentText.length + 1);
-        dynamicTextElement.textContent = currentText;
+const typewriter = new Typewriter(jap, {
+    loop: true
+});
 
-        if (currentText === targetText) {
-            setTimeout(eraseText, 5000);
-        } else {
-            setTimeout(typeText, 100);
-        }
-    }
-
-    function eraseText() {
-        currentText = currentText.substring(0, currentText.length - 1);
-        dynamicTextElement.textContent = currentText;
-
-        if (currentText === "") {
-            currentIndex = (currentIndex + 1) % textValues.length;
-            setTimeout(typeText, 500);
-        } else {
-            setTimeout(eraseText, 50);
-        }
-    }
-
-    return {
-        start: function () {
-            typeText();
-        },
-    };
-}
-
-const textValuesJap = [
-    "ようこそ",
-    "Welcome to",
-    "Selamat Datang di",
-    // Add more text values as needed
-];
-
-const textValuesEng = [
-    "最高のクラス",
-    "The Best Class",
-    "Kelas Terbaik",
-    // Add more text values as needed
-];
-
-const typingEffectJap = setupTypingEffect("jap", textValuesJap);
-const typingEffectEng = setupTypingEffect("eng", textValuesEng);
-
-typingEffectJap.start();
-typingEffectEng.start();
+typewriter.typeString('Welcome to <br> <span class="teritary">The Best Class</span>')
+    .pauseFor(2500)
+    .deleteAll()
+    .typeString('最高のクラス <br> <span class="teritary">へようこそ</span>')
+    .pauseFor(2500)
+    .deleteAll()
+    .typeString('꧋ꦱꦸꦒꦺꦁꦫꦮꦸꦃ<br> <span class="teritary">ꦆꦁꦏꦺꦭꦱ꧀ꦏꦸꦭ</span>')
+    .pauseFor(2500)
+    .deleteAll()
+    .typeString('Selamat Datang Di <br> <span class="teritary">Kelas Terbaik</span>')
+    .pauseFor(2500)
+    .deleteAll()
+    .start();
