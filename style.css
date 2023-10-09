@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Noto+Sans+JP:wght@900&display=swap');
 
+
+body{
+    height: 3000px;
+    overflow-x: hidden;
+}
 /* For WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
     width: 8px; /* Set the width of the scrollbar */
@@ -19,7 +24,7 @@
 .bg-costum.scrolled{
     transition: 2s;
     background-color: rgba(15, 14, 23, 0.7) !important;
-    border-radius: 5px;
+    border-radius: 0 0px 5px 5px;
 }
 .navbar-brand{
     color: #e53170 !important;
@@ -78,9 +83,58 @@
     color: #0f0e17;
 }
 #about{
+    background-color: #fffffe !important;
     height: 500px;
     color: #2e2f3e;
     text-shadow: 3px 3px 4px rgba(0,0,0,0.25);
     font-family: 'Montserrat';
     font-weight: 400;
 }
+
+#materi{
+    min-height: 450px;
+    background-attachment: fixed;
+    background-image: url('img/paul-volkmer-qVotvbsuM_c-unsplash.jpg');
+    background-size: cover;
+}
+
+#materi h1{
+    font-weight: 900;
+    text-shadow: 2px 2px 5px rgba(255,255,255,0.25);
+}
+
+
+*{
+    cursor: none;
+}
+
+.objek {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(0,0,0,0.5);
+    position: absolute;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 50%;
+}
+
+.ripple {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url(img/star.png);
+    background-size: cover;
+    background-color: #0f0e1752;
+    border-radius: 50%; /* Membuatnya berbentuk lingkaran */
+    transform: scale(0);
+    animation: ripple-animation 0.4s linear;
+    pointer-events: none;
+  }
+  
+  @keyframes ripple-animation {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+  
+  

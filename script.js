@@ -56,3 +56,57 @@ typewriter.typeString('Welcome to <br> <span class="teritary">The Best Class</sp
     .pauseFor(2500)
     .deleteAll()
     .start();
+
+
+
+    const objek = document.querySelector('.objek');
+
+    document.addEventListener('mousemove', (e) => {
+        objek.style.left = e.pageX-20 + 'px';
+        objek.style.top = e.pageY-20 + 'px';
+    });
+
+    document.addEventListener('click', function(event) {
+        // Create a new ripple element
+        var ripple = document.createElement('div');
+        ripple.classList.add('ripple');
+      
+        // Set the ripple's position
+        var rect = event.target.getBoundingClientRect();
+        var rippleX = event.clientX - rect.left;
+        var rippleY = event.clientY - rect.top;
+        ripple.style.left = rippleX-22 + 'px';
+        ripple.style.top = rippleY-22 + 'px';
+      
+        // Append the ripple element to the clicked element
+        event.target.appendChild(ripple);
+      
+        // Remove the ripple element after the animation completes
+        ripple.addEventListener('animationend', function() {
+          ripple.remove();
+        });
+      });
+      
+
+      document.querySelector('.navbar').addEventListener('click', function(event) {
+        // Create a new ripple element
+        var ripple = document.createElement('div');
+        ripple.classList.add('ripple');
+      
+        // Set the ripple's position
+        var rippleX = event.clientX - this.getBoundingClientRect().left;
+        var rippleY = event.clientY - this.getBoundingClientRect().top;
+        ripple.style.left = rippleX + 'px';
+        ripple.style.top = rippleY + 'px';
+      
+        // Append the ripple element to the navbar
+        this.appendChild(ripple);
+      
+        // Remove the ripple element after the animation completes
+        ripple.addEventListener('animationend', function() {
+          ripple.remove();
+        });
+      });
+      
+      
+
